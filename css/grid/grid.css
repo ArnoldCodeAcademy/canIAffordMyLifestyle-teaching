@@ -1,0 +1,29 @@
+.grid > * {
+  background-color: orange;
+  border: 2px solid darkorange;
+  border-radius: 5px;
+  opacity: 75%;
+  margin: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .7vw;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+/*   grid-column: grid-column-start / grid-colum-end LINES, not cells*/
+
+/* grid-row:  grid-row-start / grid-row-end*/
+
+
+
+
+
+
+
+
+
+
+
