@@ -30,8 +30,15 @@
 }
 
 .summary {
-  line-height: 16em!important;
+  line-height: 9em!important;
 }
+
+input[type="number"] {
+  margin: 0 10px 0 10px;
+}
+
+
+
 
 /* either do grid > * > p to style all paragraphs and use h1,h2 tags explicitly
     OR
