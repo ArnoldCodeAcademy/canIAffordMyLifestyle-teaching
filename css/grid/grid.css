@@ -1,4 +1,5 @@
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: .1vw;
@@ -13,8 +14,23 @@
   margin: 5px;
 }
 
+/*
+
+ If the centered element consists of a single line and its parent height is fixed you can simply set the container’s
+  line-height to fill its height. This method is quite versatile in my experience. jsfiddle example
+  http://jsfiddle.net/d4zGF/
+
+
+
+*/
 .grid > * > p {
+  line-height: 3em;
   text-align: center;
+  font-weight: bold;
+}
+
+.summary {
+  line-height: 16em!important;
 }
 
 /* either do grid > * > p to style all paragraphs and use h1,h2 tags explicitly
