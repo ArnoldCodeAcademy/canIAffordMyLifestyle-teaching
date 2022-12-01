@@ -24,13 +24,13 @@
 
 */
 .grid > * > p {
-  line-height: 3em;
+  line-height: 4em;
   text-align: center;
   font-weight: bold;
 }
 
 .summary {
-  line-height: 9em!important;
+  line-height: 12em!important;
 }
 
 input[type="number"] {
