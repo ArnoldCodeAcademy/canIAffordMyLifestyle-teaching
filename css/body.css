@@ -1,0 +1,8 @@
+/* either do grid > * > p to style all paragraphs and use h1,h2 tags explicitly
+    OR
+    use grid > * > * to style everything beneath the grid
+*/
+
+h1, h2 {
+  text-align: center;
+}

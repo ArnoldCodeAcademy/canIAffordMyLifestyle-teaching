@@ -1,3 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .1vw;
+  grid-auto-rows: minmax(100px, auto);
+}
+
 .grid > * {
   background-color: orange;
   border: 2px solid darkorange;
@@ -6,16 +13,21 @@
   margin: 5px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: .1vw;
-  grid-auto-rows: minmax(100px, auto);
+.grid > * > p {
+  text-align: center;
 }
 
-/*   grid-column: grid-column-start / grid-colum-end LINES, not cells*/
+/* either do grid > * > p to style all paragraphs and use h1,h2 tags explicitly
+    OR
+    use grid > * > * to style everything beneath the grid
+*/
+/*.grid > * > * {*/
+/*  text-align: center;*/
+/*}*/
 
-/* grid-row:  grid-row-start / grid-row-end*/
+/* grid-column: grid-column-start / grid-colum-end | LINES, not cells*/
+
+/* grid-row:  grid-row-start / grid-row-end* | LINES; not cells/
 
 
 
