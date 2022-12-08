@@ -1,0 +1,19 @@
+@font-face {
+  font-family: hanken;
+  src: url(static/HankenGrotesk-Medium.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: hanken-bold;
+  src: url(static/HankenGrotesk-ExtraBold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: hanken-italic;
+  src: url(static/HankenGrotesk-Italic.ttf);
+  font-weight: bold;
+}
+
+
