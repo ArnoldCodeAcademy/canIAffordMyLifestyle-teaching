@@ -24,3 +24,7 @@ body {
   background-color: lightsalmon;
   scale: 1.07;
 }
+.default-button:active {
+  background-color:lightgreen;
+}
+
