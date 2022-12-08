@@ -18,3 +18,9 @@ body {
   font-size: 1.3em;
   background-color: lightcoral;
 }
+
+.default-button:hover {
+  font-family: hanken-bold;
+  background-color: lightsalmon;
+  scale: 1.07;
+}
