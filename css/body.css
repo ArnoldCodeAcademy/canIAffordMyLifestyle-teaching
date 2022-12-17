@@ -28,3 +28,18 @@ body {
   background-color:lightgreen;
 }
 
+.btn {
+  background-color: red;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 12px 12px;
+  font-size: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: green;
+}

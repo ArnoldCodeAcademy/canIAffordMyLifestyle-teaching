@@ -59,14 +59,15 @@
   </div>
 
   <div id="position-container" class="col-1-2">
-    <p contentEditable="true">Position</p>
+    <p id='0_position' contentEditable="true">Position</p>
   </div>
 
   <div id="expenses-container" class="col-3-4">
-    <p>
+    <p id="0_expense">
       <label>
         <input type="number">
       </label> $
+      <button onclick="deleteExpense(this.parentNode.id)" class="btn">X</button>
     </p>
   </div>
 
@@ -88,6 +89,7 @@
     <label>
       <input type="number">
     </label> $
+    <button onclick="deleteExpense(this.parentNode.id)" class="btn">X</button>
   </p>
 </template>
 
