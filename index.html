@@ -34,7 +34,8 @@
 
   <div class="col-1-4" style="background-color: #b3d4fc">
     <h1> Can I Afford My Lifestyle? </h1>
-    <h2> This is a calculator to list all expenses and get a summary of what you need to earn <br> on a daily/monthly, and
+    <h2> This is a calculator to list all expenses and get a summary of what you need to earn <br> on a daily/monthly,
+      and
       yearly basis (before and after taxes) to afford your lifestyle.</h2>
   </div>
 
@@ -57,55 +58,19 @@
     <h1>Expenses</h1>
   </div>
 
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
+  <div id="position-container" class="col-1-2">
+    <p contentEditable="true">Position</p>
   </div>
 
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
+  <div id="expenses-container" class="col-3-4">
+    <p>
+      <label>
+        <input type="number">
+      </label> $
+    </p>
   </div>
 
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
-  </div>
-
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
-  </div>
-
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
-  </div>
-
-  <div class="col-1-2"><p contentEditable="true">Position</p></div>
-  <div class="col-3-4"><p>
-    <label>
-      <input type="number">
-    </label> $
-  </p>
-  </div>
-
-  <button class="col-2-3 default-button">Add Expense</button>
+  <button id="b-add-expenses" class="col-2-3 default-button" >Add Expense</button>
 
   <div class="col-1-2"><p>Total</p></div>
   <div class="col-3-4"><p>${EXPENSES_TOTAL}</p></div>
@@ -114,9 +79,24 @@
   <button class="col-2-3 default-button">Download CSV</button>
 </div>
 
+<template id="item-position">
+  <p contentEditable="true">Position</p>
+</template>
+
+<template id="item-expense">
+  <p>
+    <label>
+      <input type="number">
+    </label> $
+  </p>
+</template>
+
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 
 </body>
 
 </html>
+
+
+
