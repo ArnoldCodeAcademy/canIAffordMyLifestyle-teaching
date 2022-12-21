@@ -46,13 +46,13 @@ function printChanges(changes){
 
 function updateSummary(){
   updateLifeCost();
-
 }
 
 
 function updateLifeCost(){
   const total = linkedInputs.reduce((acc, x) => acc + parseFloat(x.value), 0);
   document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
+  document.getElementById('total_expenses').innerText = `$${total}`;
 
   updateDaily(total);
   updateMonthly(total);
