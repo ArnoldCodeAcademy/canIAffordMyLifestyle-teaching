@@ -2,6 +2,7 @@ const linkedInputs = [];
 
 function initModule(){
   new InputSynchronizer(document.getElementById("0_input"), 20);
+  updateSummary();
 }
 
 function InputSynchronizer(element, value) {
@@ -35,10 +36,22 @@ InputSynchronizer.prototype.calculateSummary = function (value) {
     value: this.element.value
   })
 
+  updateSummary()
+
 };
 
 function printChanges(changes){
   console.log(changes);
+}
+
+function updateSummary(){
+  updateLifeCost();
+}
+
+
+function updateLifeCost(){
+  const total = linkedInputs.reduce((acc, x) => acc + parseFloat(x.value), 0);
+  document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
 }
 
 export {initModule,InputSynchronizer, linkedInputs}
