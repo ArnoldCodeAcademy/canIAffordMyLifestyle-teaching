@@ -9,7 +9,8 @@ let totalCount = 0
 
 const expensesIds = [{
   position: '0_position',
-  expense: '0_expenses'
+  expense: '0_expenses',
+  input: '0_input',
 }]
 
 
@@ -26,10 +27,12 @@ function addExpense() {
   totalCount++;
   position.firstElementChild.id = `${totalCount}_position`;
   expense.firstElementChild.id = `${totalCount}_expense`;
+  expense.firstElementChild.firstElementChild.firstElementChild.id = `${totalCount}_input`;
 
   expensesIds.push({
     position: position.firstElementChild.id,
-    expense: expense.firstElementChild.id
+    expense: expense.firstElementChild.id,
+    input: expense.firstElementChild.firstElementChild.firstElementChild.id
   });
 
   positionContainer.append(position);
