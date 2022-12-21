@@ -46,12 +46,40 @@ function printChanges(changes){
 
 function updateSummary(){
   updateLifeCost();
+
 }
 
 
 function updateLifeCost(){
   const total = linkedInputs.reduce((acc, x) => acc + parseFloat(x.value), 0);
   document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
+
+  updateDaily(total);
+  updateMonthly(total);
+  updateYearly(total);
+}
+
+
+function updateDaily(total){
+  const dailyBeforeTaxes = (total / 30).toFixed(2) + '*TAX_RATE';
+  const dailyAfterTaxes = (total / 30).toFixed(2);
+
+  document.getElementById('summary_daily').innerText = `$${dailyBeforeTaxes} daily ($${dailyAfterTaxes} after taxes)`;
+}
+
+function updateMonthly(total){
+  const monthlyBeforeTaxes = (total).toFixed(2) + '*TAX_RATE';
+  const monthlyAfterTaxes = (total).toFixed(2);
+
+  document.getElementById('summary_monthly').innerText = `$${monthlyBeforeTaxes} monthly ($${monthlyAfterTaxes} after taxes)`;
+}
+
+function updateYearly(total){
+  const yearlyBeforeTaxes = (total * 12) .toFixed(2) + '*TAX_RATE';
+  const yearlyAfterTaxes = (total *12 ).toFixed(2);
+
+  document.getElementById('summary_yearly').innerText = `$${yearlyBeforeTaxes} yearly ($${yearlyAfterTaxes} after taxes)`;
+
 }
 
 export {initModule,InputSynchronizer, linkedInputs}
