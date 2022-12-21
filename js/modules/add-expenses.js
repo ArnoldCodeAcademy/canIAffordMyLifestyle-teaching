@@ -1,3 +1,5 @@
+import {InputSynchronizer, linkedInputs} from "./summary.js";
+
 const positionContainer = document.getElementById('position-container');
 const expensesContainer = document.getElementById('expenses-container');
 
@@ -38,6 +40,9 @@ function addExpense() {
   positionContainer.append(position);
   expensesContainer.append(expense);
 
+
+  new InputSynchronizer(document.getElementById(`${totalCount}_input`), 0);
+
   console.log(expensesIds);
 }
 
@@ -64,6 +69,11 @@ function deleteExpense(id) {
   expense.remove()
   position.remove()
 
+
+  const linkedInputToDelete = linkedInputs.find(x => x.id === `${pureId}_input`)
+  if (linkedInputToDelete) {
+    linkedInputs.splice(linkedInputs.indexOf(linkedInputToDelete), 1);
+  }
 
 }
 
