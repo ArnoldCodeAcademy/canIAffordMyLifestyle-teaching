@@ -1,6 +1,8 @@
 const linkedInputs = [];
 
-
+function initModule(){
+  new InputSynchronizer(document.getElementById("0_input"), 20);
+}
 
 function InputSynchronizer(element, value) {
   this.id = element.id;
@@ -39,4 +41,4 @@ function printChanges(changes){
   console.log(changes);
 }
 
-export {InputSynchronizer, linkedInputs}
+export {initModule,InputSynchronizer, linkedInputs}
