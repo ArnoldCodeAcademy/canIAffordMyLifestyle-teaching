@@ -1,7 +1,8 @@
 const linkedInputs = [];
 
-function initModule(){
+function initModule() {
   new InputSynchronizer(document.getElementById("0_input"), 20);
+  new InputSynchronizer(document.getElementById('tax_rate_input'), 0);
   updateSummary();
 }
 
@@ -40,17 +41,19 @@ InputSynchronizer.prototype.calculateSummary = function (value) {
 
 };
 
-function printChanges(changes){
+function printChanges(changes) {
   console.log(changes);
 }
 
-function updateSummary(){
+function updateSummary() {
   updateLifeCost();
 }
 
 
-function updateLifeCost(){
-  const total = linkedInputs.reduce((acc, x) => acc + parseFloat(x.value), 0);
+function updateLifeCost() {
+  const linkedExpenses = linkedInputs.filter(x => !x.id.includes('tax'));
+
+  const total = linkedExpenses.reduce((acc, x) => acc + parseFloat(x.value), 0);
   document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
   document.getElementById('total_expenses').innerText = `$${total}`;
 
