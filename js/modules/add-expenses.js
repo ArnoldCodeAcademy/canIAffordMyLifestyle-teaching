@@ -1,4 +1,4 @@
-import {InputSynchronizer, linkedInputs} from "./summary.js";
+import {deleteLinkedInput, InputSynchronizer, linkedInputs} from "./summary.js";
 
 const positionContainer = document.getElementById('position-container');
 const expensesContainer = document.getElementById('expenses-container');
@@ -66,15 +66,11 @@ function deleteExpense(id) {
   const position = document.getElementById(positionId);
   const expense = document.getElementById(expenseId);
 
-  expense.remove()
-  position.remove()
+  expense.remove();
+  position.remove();
 
 
-  const linkedInputToDelete = linkedInputs.find(x => x.id === `${pureId}_input`)
-  if (linkedInputToDelete) {
-    linkedInputs.splice(linkedInputs.indexOf(linkedInputToDelete), 1);
-  }
-
+  deleteLinkedInput(`${pureId}_input`)
 }
 
 export {initModule, deleteExpense}

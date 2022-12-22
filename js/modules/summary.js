@@ -82,4 +82,13 @@ function updateYearly(total){
 
 }
 
-export {initModule,InputSynchronizer, linkedInputs}
+function deleteLinkedInput(id){
+  const linkedInputToDelete = linkedInputs.find(x => x.id === id);
+
+  if (linkedInputToDelete) {
+    linkedInputs.splice(linkedInputs.indexOf(linkedInputToDelete), 1);
+    updateLifeCost();
+  }
+}
+
+export {initModule,InputSynchronizer, linkedInputs, deleteLinkedInput}
