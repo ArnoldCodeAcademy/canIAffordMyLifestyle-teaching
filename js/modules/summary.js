@@ -29,17 +29,36 @@ InputSynchronizer.prototype.handleEvent = function (event) {
 };
 
 InputSynchronizer.prototype.calculateSummary = function (value) {
-  this.value = value;
-  this.element.value = value;
+
+  if (this.element.id.includes('tax')) {
+    this.value = keepInBoundaries(parseInt(value));
+    this.element.value = keepInBoundaries(parseInt(value));
+  } else {
+    this.value = value;
+    this.element.value = value;
+  }
 
   printChanges({
     id: this.element.id,
     value: this.element.value
   })
 
-  updateSummary()
-
+  updateSummary();
 };
+
+function keepInBoundaries(value) {
+  const min = 0;
+  const max = 100;
+
+  if (value < min) {
+    value = min;
+  } else if (value > max) {
+    value = max;
+  }
+  return value
+
+
+}
 
 function printChanges(changes) {
   console.log(changes);
