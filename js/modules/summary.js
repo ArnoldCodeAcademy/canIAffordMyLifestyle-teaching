@@ -57,35 +57,37 @@ function updateLifeCost() {
   document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
   document.getElementById('total_expenses').innerText = `$${total}`;
 
-  updateDaily(total);
-  updateMonthly(total);
-  updateYearly(total);
+  const taxRateInput = linkedInputs.find(x => x.id.includes('tax'));
+
+  updateDaily(total, taxRateInput.value);
+  updateMonthly(total, taxRateInput.value);
+  updateYearly(total, taxRateInput.value);
 }
 
 
-function updateDaily(total){
-  const dailyBeforeTaxes = (total / 30).toFixed(2) + '*TAX_RATE';
+function updateDaily(total, taxRate) {
+  const dailyBeforeTaxes = ((total / 30) / (1 - (parseInt(taxRate)/ 100))).toFixed(2);
   const dailyAfterTaxes = (total / 30).toFixed(2);
 
   document.getElementById('summary_daily').innerText = `$${dailyBeforeTaxes} daily ($${dailyAfterTaxes} after taxes)`;
 }
 
-function updateMonthly(total){
-  const monthlyBeforeTaxes = (total).toFixed(2) + '*TAX_RATE';
+function updateMonthly(total, taxRate) {
+  const monthlyBeforeTaxes = (total / (1 - (parseInt(taxRate)/ 100))).toFixed(2);
   const monthlyAfterTaxes = (total).toFixed(2);
 
   document.getElementById('summary_monthly').innerText = `$${monthlyBeforeTaxes} monthly ($${monthlyAfterTaxes} after taxes)`;
 }
 
-function updateYearly(total){
-  const yearlyBeforeTaxes = (total * 12) .toFixed(2) + '*TAX_RATE';
-  const yearlyAfterTaxes = (total *12 ).toFixed(2);
+function updateYearly(total, taxRate) {
+  const yearlyBeforeTaxes = (total * 12 / (1 - (parseInt(taxRate)/ 100))).toFixed(2);
+  const yearlyAfterTaxes = (total * 12).toFixed(2);
 
   document.getElementById('summary_yearly').innerText = `$${yearlyBeforeTaxes} yearly ($${yearlyAfterTaxes} after taxes)`;
 
 }
 
-function deleteLinkedInput(id){
+function deleteLinkedInput(id) {
   const linkedInputToDelete = linkedInputs.find(x => x.id === id);
 
   if (linkedInputToDelete) {
@@ -94,4 +96,4 @@ function deleteLinkedInput(id){
   }
 }
 
-export {initModule,InputSynchronizer, linkedInputs, deleteLinkedInput}
+export {initModule, InputSynchronizer, linkedInputs, deleteLinkedInput}
