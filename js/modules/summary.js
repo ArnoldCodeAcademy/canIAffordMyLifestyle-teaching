@@ -48,7 +48,7 @@ InputSynchronizer.prototype.calculateSummary = function (value) {
 
 function keepInBoundaries(value) {
   const min = 0;
-  const max = 100;
+  const max = 99;
 
   if (value < min) {
     value = min;
