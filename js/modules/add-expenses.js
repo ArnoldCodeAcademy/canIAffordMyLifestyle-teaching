@@ -1,4 +1,4 @@
-import {deleteLinkedInput, InputSynchronizer, linkedInputs} from "./summary.js";
+import {deleteLinkedInput, InputSynchronizer} from "./summary.js";
 
 const positionContainer = document.getElementById('position-container');
 const expensesContainer = document.getElementById('expenses-container');
@@ -41,8 +41,8 @@ function addExpense() {
   expensesContainer.append(expense);
 
 
-  new InputSynchronizer(document.getElementById(`${totalCount}_input`), 0, 'change');
   new InputSynchronizer(document.getElementById(`${totalCount}_position`), 'Position', 'input');
+  new InputSynchronizer(document.getElementById(`${totalCount}_input`), 0, 'change');
 
   console.log(expensesIds);
 }

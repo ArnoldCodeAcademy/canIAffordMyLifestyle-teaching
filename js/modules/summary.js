@@ -1,8 +1,8 @@
 const linkedInputs = [];
 
 function initModule() {
-  new InputSynchronizer(document.getElementById("0_input"), 20, 'change');
   new InputSynchronizer(document.getElementById('0_position'), 'Position', 'input');
+  new InputSynchronizer(document.getElementById("0_input"), 20, 'change');
   new InputSynchronizer(document.getElementById('tax_rate_input'), 0, 'change');
   updateSummary();
 }
