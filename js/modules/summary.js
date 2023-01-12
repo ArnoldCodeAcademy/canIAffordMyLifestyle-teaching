@@ -1,18 +1,19 @@
 const linkedInputs = [];
 
 function initModule() {
-  new InputSynchronizer(document.getElementById("0_input"), 20);
-  new InputSynchronizer(document.getElementById('tax_rate_input'), 0);
+  new InputSynchronizer(document.getElementById("0_input"), 20, 'change');
+  new InputSynchronizer(document.getElementById('0_position'), 'Position', 'input');
+  new InputSynchronizer(document.getElementById('tax_rate_input'), 0, 'change');
   updateSummary();
 }
 
-function InputSynchronizer(element, value) {
+function InputSynchronizer(element, value, event) {
   this.id = element.id;
   this.element = element;
   this.value = value;
 
   element.value = value;
-  element.addEventListener("change", this);
+  element.addEventListener(event, this);
 
   linkedInputs.push(this);
 }
@@ -55,9 +56,7 @@ function keepInBoundaries(value) {
   } else if (value > max) {
     value = max;
   }
-  return value
-
-
+  return value;
 }
 
 function printChanges(changes) {

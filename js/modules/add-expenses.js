@@ -41,7 +41,8 @@ function addExpense() {
   expensesContainer.append(expense);
 
 
-  new InputSynchronizer(document.getElementById(`${totalCount}_input`), 0);
+  new InputSynchronizer(document.getElementById(`${totalCount}_input`), 0, 'change');
+  new InputSynchronizer(document.getElementById(`${totalCount}_position`), 'Position', 'input');
 
   console.log(expensesIds);
 }
