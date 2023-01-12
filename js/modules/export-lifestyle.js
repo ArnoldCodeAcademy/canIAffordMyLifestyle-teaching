@@ -1,5 +1,7 @@
 import {linkedInputs} from "./summary.js";
 
+const FILE_NAME = 'ACA - Lifestyle'
+
 function initModule() {
   document.getElementById('downloadButton').addEventListener('click', downloadLifestyle)
 }
@@ -16,8 +18,7 @@ function downloadLifestyle() {
     csvContent += row + "\r\n";
   });
 
-  var encodedUri = encodeURI(csvContent);
-  window.open(encodedUri);
+  exportNamedFile(FILE_NAME, rows);
 }
 
 function convertForExport(expensesAndPositions) {
@@ -37,6 +38,18 @@ function convertArrayIntoPairOfTwos(arr) {
     return null;
     // filter out any null values
   }).filter(Boolean);
+}
+
+function exportNamedFile(name, csvContent) {
+  const anchorElement = document.createElement('a');
+
+  const blob = new Blob([csvContent.join('\n')], {type: 'text/csv;charset=utf-8;'});
+
+  anchorElement.href = URL.createObjectURL(blob);
+
+  anchorElement.setAttribute('download', `${name}.csv`);
+
+  anchorElement.click();
 }
 
 export {initModule}
