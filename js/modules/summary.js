@@ -71,7 +71,7 @@ function updateSummary() {
 function updateLifeCost() {
   const linkedExpenses = linkedInputs.filter(x => !x.id.includes('tax'));
 
-  const total = linkedExpenses.reduce((acc, x) => acc + parseFloat(x.value), 0);
+  const total = linkedExpenses.filter(x => x.id.includes('input')).reduce((acc, x) => acc + parseFloat(x.value), 0);
   document.getElementById('summary').innerText = `My life costs me a total of $${total} per month.`;
   document.getElementById('total_expenses').innerText = `$${total}`;
 
