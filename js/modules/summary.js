@@ -26,6 +26,10 @@ InputSynchronizer.prototype.handleEvent = function (event) {
       this.calculateSummary(this.element.value);
       break;
     }
+    case "input": {
+      this.calculateSummary(this.element.innerText);
+      break;
+    }
   }
 };
 
