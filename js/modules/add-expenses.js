@@ -71,7 +71,8 @@ function deleteExpense(id) {
   position.remove();
 
 
-  deleteLinkedInput(`${pureId}_input`)
+  deleteLinkedInput(`${pureId}_input`);
+  deleteLinkedInput(`${pureId}_position`);
 }
 
 export {initModule, deleteExpense}
